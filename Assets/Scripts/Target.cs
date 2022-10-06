@@ -11,6 +11,8 @@ public class Target : MonoBehaviour
     private float maxTorque = 10;
     private float xRange = 4;
     private float ySpawnPos = -2;
+
+    public ParticleSystem explosnParticle;
     public int pointValue;
 
     // Start is called before the first frame update
@@ -32,6 +34,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        Instantiate(explosnParticle, transform.position, explosnParticle.transform.rotation);
         gameManager.UpdateScore(pointValue);
     }
 
