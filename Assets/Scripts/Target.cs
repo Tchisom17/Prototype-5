@@ -11,6 +11,7 @@ public class Target : MonoBehaviour
     private float maxTorque = 10;
     private float xRange = 4;
     private float ySpawnPos = -2;
+    public int pointValue;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +28,11 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update() { }
 
-    //OnMouseDown is used to destroy objects upon a click of the mouse
+    //OnMouseDown is used to destroy objects and update score upon a click of the mouse
     private void OnMouseDown()
     {
         Destroy(gameObject);
-        gameManager.UpdateScore(5);
+        gameManager.UpdateScore(pointValue);
     }
 
     //OnTriggerEnter is used to destroy objects when they are beyond the player's view
