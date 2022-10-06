@@ -34,7 +34,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
-        Instantiate(explosnParticle, transform.position, explosnParticle.transform.rotation);  //Add explosion to prefabs
+        Instantiate(explosnParticle, transform.position, explosnParticle.transform.rotation); //Add explosion to prefabs
         gameManager.UpdateScore(pointValue);
     }
 
@@ -42,6 +42,10 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        if (!gameObject.CompareTag("Bad"))
+        {
+            gameManager.GameOver();
+        }
     }
 
     //RandomForce is used to set the range of the force
