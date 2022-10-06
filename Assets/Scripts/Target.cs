@@ -34,7 +34,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
-        Instantiate(explosnParticle, transform.position, explosnParticle.transform.rotation);
+        Instantiate(explosnParticle, transform.position, explosnParticle.transform.rotation);  //Add explosion to prefabs
         gameManager.UpdateScore(pointValue);
     }
 
