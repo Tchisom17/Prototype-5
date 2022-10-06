@@ -33,9 +33,12 @@ public class Target : MonoBehaviour
     //OnMouseDown is used to destroy objects and update score upon a click of the mouse
     private void OnMouseDown()
     {
-        Destroy(gameObject);
-        Instantiate(explosnParticle, transform.position, explosnParticle.transform.rotation); //Add explosion to prefabs
-        gameManager.UpdateScore(pointValue);
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            Instantiate(explosnParticle, transform.position, explosnParticle.transform.rotation); //Add explosion to prefabs
+            gameManager.UpdateScore(pointValue);
+        }
     }
 
     //OnTriggerEnter is used to destroy objects when they are beyond the player's view
