@@ -47,14 +47,18 @@ public class GameManager : MonoBehaviour
         isGameActive = false;
     }
 
+    //RestartGame is used to restart the game after it has ended
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void StartGame()
+    //StartGame is used to start the game upon clicking on a difficulty
+    public void StartGame(int difficulty)
     {
         isGameActive = true;
+        spawnRate /= difficulty;
+
         titleScreen.gameObject.SetActive(false);
 
         StartCoroutine(SpawnTarget());
